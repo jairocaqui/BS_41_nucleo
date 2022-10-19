@@ -831,7 +831,8 @@ IS
                             AND A.CPRCSO = C.CPRCSO
                             AND A.CSPRCSO = C.CSPRCSO
                             AND B.CTCNSMDR = 1
-                            AND C.CTCNSMDR = 2)*/
+                            AND C.CTCNSMDR = 2)*/ -- BS_00423945
+							
 							AS (SELECT DISTINCT
                             TO_NUMBER (as_ANIO || as_MES) anio_mes_operacion --01
                                                                             ,
@@ -974,7 +975,7 @@ IS
                             SUBSTR (B.CELCTRNCO, 1, 50) CELCTRNCORMNTE    --26
                                                                       ,
                             (SELECT SUBSTR (X.NOFCNA, 1, 100)
-                               FROM WEBRECLAMOS.SASMT10 X
+                               FROM WEBRECLAMOS.ODS_WRE_SASMT09 X
                               WHERE X.COFCNA = A.CORGNRDRA)
                                ORGNRDRA            -- OFICINA_GENERADORA, --27
                                        ,
